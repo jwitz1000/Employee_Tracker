@@ -37,28 +37,37 @@ CREATE TABLE employee
       (id)
 );
 
-      INSERT INTO employee
-        (first_name,last_name, role_id,manager_id)
-      VALUES( "Arman", "Riahi", 01, 10);
+      -- INSERT INTO employee
+      --   (first_name,last_name, role_id,manager_id)
+      -- VALUES( "Arman", "Riahi", 1, 5);
 
 
-      INSERT INTO employee
-        (first_name,last_name, role_id,manager_id)
-      VALUES( "Sheldon", "F", 02, 11);
+      -- INSERT INTO employee
+      --   (first_name,last_name, role_id,manager_id)
+      -- VALUES( "Sheldon", "Foz", 3, 5);
 
-      INSERT INTO role
-        (title, salary, department_id)
-      VALUES( "engineer", 100, 1);
+      -- INSERT INTO employee
+      --   (first_name,last_name, role_id,manager_id)
+      -- VALUES( "Ralph", "Lauren", 2, 6);
 
-      INSERT INTO role
-        (title, salary, department_id)
-      VALUES( "salesman", 10, 2);
 
-      INSERT INTO department
-        (department_name)
-      VALUES( "eng");
+      -- INSERT INTO role
+      --   (title, salary, department_id)
+      -- VALUES( "Engineer", 100, 1);
 
-      INSERT INTO department
-        (department_name)
-      VALUES( "sales");
+      -- INSERT INTO role
+      --   (title, salary, department_id)
+      -- VALUES( "Salesmen", 90, 2);
+
+      -- INSERT INTO role
+      --   (title, salary, department_id)
+      -- VALUES( "Custodian", 10, 2);
+
+      -- INSERT INTO department
+      --   (department_name)
+      -- VALUES( "Developement");
+
+      -- INSERT INTO department
+      --   (department_name)
+      -- VALUES( "Sales");
 

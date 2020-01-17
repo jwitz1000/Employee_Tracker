@@ -96,7 +96,7 @@ function choicesInit(answer) {
               res
             ) {
               let map2 = res.map(obj => obj.id);
-              console.log(map2);
+              // console.log(map2);
               roleAddQ[2].choices = map2;
               inquirer.prompt(roleAddQ).then(addRole);
             });
@@ -117,13 +117,13 @@ function choicesInit(answer) {
         "Select employee.idd,role.id from employee LEFT JOIN role on role.id = employee.idd",
 
         function(err, res) {
-          console.log(res);
+          // console.log(res);
           let map1 = res.filter(obj => obj.idd !== null).map(obj => obj.idd);
           updateQ[0].choices = map1;
           let map2 = res.filter(obj => obj.id !== null).map(obj => obj.id);
 
           updateQ[1].choices = map2;
-          console.log(updateQ);
+          // console.log(updateQ);
           inquirer.prompt(updateQ).then(updated);
         }
       );
@@ -141,7 +141,7 @@ function addEmployee(answer) {
       manager_id: answer.manager_id
     },
     function(err, res) {
-      console.log(res);
+      // console.log(res);
     }
   );
   inquirer.prompt(initialQ).then(choicesInit);
@@ -156,7 +156,7 @@ function addRole(answer) {
       department_id: answer.department_id
     },
     function(err, res) {
-      console.log(res);
+      // console.log(res);
     }
   );
   inquirer.prompt(initialQ).then(choicesInit);
@@ -169,7 +169,7 @@ function addDepartment(answer) {
       department_name: answer.name
     },
     function(err, res) {
-      console.log(res);
+      // console.log(res);
     }
   );
   inquirer.prompt(initialQ).then(choicesInit);
@@ -189,18 +189,18 @@ function update() {
   var query = connection.query("Select * from role", function(err, res) {
     let map1 = res.map(obj => obj.id);
     updatedQ[0].choices = map1;
-    console.log(res);
+    // console.log(res);
   });
 }
 
 function updated(answer) {
-  console.log(answer);
+  // console.log(answer);
   var query = connection.query(
     "UPDATE employee SET ? WHERE ?",
     [{ role_id: answer.updated }, { idd: answer.update }],
     function(err, res) {
       inquirer.prompt(initialQ).then(choicesInit);
-      console.log(res);
+      // console.log(res);
     }
   );
 }

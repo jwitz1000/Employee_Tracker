@@ -9,7 +9,18 @@ This is a command line application that allows users to interact with a database
 
 # Sample Images
 
+Example series of questions and answers:
+<br>
+
 ![Image](images/sc1.png)
+<br>
+<br>
+<br>
+
+Using update feature:
+<br>
+
+![Image](images/sc2.png)
 <br>
 
 # Technologies
