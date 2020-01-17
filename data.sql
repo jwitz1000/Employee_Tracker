@@ -3,7 +3,7 @@ CREATE database employee_DB;
 USE employee_DB;
 CREATE TABLE employee
 (
-  id INT
+  idd INT
   AUTO_INCREMENT,
   first_name VARCHAR
   (30),
@@ -12,7 +12,7 @@ CREATE TABLE employee
   role_id Int NOT NULL,
   manager_id int,
   PRIMARY KEY
-  (id)
+  (idd)
 );
   CREATE TABLE department
   (

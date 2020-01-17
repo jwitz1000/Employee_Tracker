@@ -64,7 +64,7 @@ let updateQ = [
   {
     name: "update",
     type: "list",
-    message: "Which emplyee's role would you like to update (by id)?"
+    message: "Which emplyee's role would you like to update (by idd)?"
   },
   {
     name: "updated",
@@ -130,13 +130,27 @@ function choicesInit(answer) {
       // }
       break;
     case "Update Employee Role":
-      var query = connection.query("Select * from employee", function(
-        err,
-        res
-      ) {
-        let map1 = res.map(obj => obj.id);
-        updateQ[0].choices = map1;
-      });
+      var query1 = connection.query(
+        "Select employee.idd,role.id from employee LEFT JOIN role on role.id = employee.idd",
+
+        function(err, res) {
+          console.log(res);
+          let map1 = res.filter(obj => obj.idd !== null).map(obj => obj.idd);
+          updateQ[0].choices = map1;
+          let map2 = res.filter(obj => obj.id !== null).map(obj => obj.id);
+
+          updateQ[1].choices = map2;
+          console.log(updateQ);
+          inquirer.prompt(updateQ).then(updated);
+        }
+      );
+      // var query2 = connection.query("Select * from role", function(err, res) {
+      //   let map2 = res.map(obj => obj.id);
+      //   updateQ[1].choices = map2;
+      // });
+      // console.log(updateQ);
+
+      // inquirer.prompt(updateQ).then(update);
       break;
   }
 }
@@ -200,14 +214,15 @@ function update() {
   var query = connection.query("Select * from role", function(err, res) {
     let map1 = res.map(obj => obj.id);
     updatedQ[0].choices = map1;
-    inquirer.prompt(updatedQ).then(updated);
+    console.log(res);
   });
 }
 
 function updated(answer) {
+  console.log(answer);
   var query = connection.query(
-    "UPDATE employee SET ? WHERE id = ?",
-    [{ role_id: answer }, answer],
+    "UPDATE employee SET ? WHERE  ?",
+    [{ role_id: answer.updated }, { idd: answer.update }],
     function(err, res) {
       inquirer.prompt(initialQ).then(choicesInit);
       console.log(res);
