@@ -48,11 +48,11 @@ CREATE TABLE employee
 
       INSERT INTO role
         (title, salary, department_id)
-      VALUES( "eng", 100, 1);
+      VALUES( "engineer", 100, 1);
 
       INSERT INTO role
         (title, salary, department_id)
-      VALUES( "sales", 10, 2);
+      VALUES( "salesman", 10, 2);
 
       INSERT INTO department
         (department_name)
