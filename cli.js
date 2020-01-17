@@ -114,10 +114,11 @@ function choicesInit(answer) {
 
     case "Update Employee Role":
       var query1 = connection.query(
-        "Select employee.idd,role.id from employee LEFT JOIN role on role.id = employee.idd",
+        // "Select employee.idd,role.id from employee left JOIN role on role.id = employee.idd",
+        "Select * from employee left outer JOIN role on role.id = employee.idd UNION Select * from employee right outer JOIN role on role.id = employee.idd",
 
         function(err, res) {
-          // console.log(res);
+          console.table(res);
           let map1 = res.filter(obj => obj.idd !== null).map(obj => obj.idd);
           updateQ[0].choices = map1;
           let map2 = res.filter(obj => obj.id !== null).map(obj => obj.id);
