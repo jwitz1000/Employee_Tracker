@@ -221,7 +221,7 @@ function update() {
 function updated(answer) {
   console.log(answer);
   var query = connection.query(
-    "UPDATE employee SET ? WHERE  ?",
+    "UPDATE employee SET ? WHERE ?",
     [{ role_id: answer.updated }, { idd: answer.update }],
     function(err, res) {
       inquirer.prompt(initialQ).then(choicesInit);
